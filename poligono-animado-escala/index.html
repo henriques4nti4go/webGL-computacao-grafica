@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>WebGL Demo</title>
+    <link rel="stylesheet" href="./webgl.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"
+      integrity="sha512-zhHQR0/H5SEBL3Wn6yYSaTTZej12z0hVZKOv3TwCUXT1z5qeqGcXJLLrbERYRScEDDpYIJhPC1fk31gqR783iQ=="
+      crossorigin="anonymous" defer>
+    </script>
+    <script src="polygon.js" defer></script>
+  </head>
+
+  <body>
+    <div class="col-md-8" style="margin-top: 20px;">
+      <div class="row">
+          <div class="col-md-8">
+            <input class="form-control" type="number" id="vertex" placeholder="entre com a quantidades de vertices">
+          </div>
+          <div class="col-md-4">
+            <button class="btn-sm btn-success btn" onclick="createPolygon()">Criar Poligono</button>
+          </div>
+      <div class="col-md-8">
+        <div class="form-group">
+          <label for="">Escala:</label>
+          <input oninput="changeScale()" class="form-control" type="range" id="scale">
+        </div>
+      </div>
+    </div>
+    <div id="container-canvas">
+      <canvas id="glcanvas" width="640" height="480"></canvas>
+    </div>
+  </body>
+</html>

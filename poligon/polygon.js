@@ -1,10 +1,6 @@
-var vertexCount = 3;
+var vertexCount = 0;
 var typeGL = 'TRIANGLE_FAN';
-var positionsArrayGL = [
-  0.5,0.5,
-  0.6,0.6,
-  0.4,0.1
-];
+var positionsArrayGL;
 function generateQtdVertex(min,max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -13,7 +9,24 @@ function generatePositions(min,max) {
   Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-main();
+function cords(params) {
+  let n = params;
+  let cord = [];
+  const r = 1;
+  for (let i = 0; i < n; i++) {
+      cord.push(r*Math.cos((2 * Math.PI * i) / n))
+      cord.push(r * Math.sin(2 * Math.PI * i / n))
+  }   
+  return cord;
+}
+
+function createPolygon(params) {
+  const inputVertex = Number(document.getElementById('vertex').value)
+  if (inputVertex < 3 || inputVertex > 10) return alert('o numero de vertices tem que está entre 3 e 10')
+  vertexCount = inputVertex;
+  positionsArrayGL = cords(vertexCount)
+  main(inputVertex);
+}
 
 
 //
